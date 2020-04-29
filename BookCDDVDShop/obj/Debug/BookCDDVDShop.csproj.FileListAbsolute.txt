@@ -1,0 +1,10 @@
+C:\Users\12152\source\repos\BookCDDVDShop\BookCDDVDShop\obj\Debug\BookCDDVDShop.csprojAssemblyReference.cache
+C:\Users\12152\source\repos\BookCDDVDShop\BookCDDVDShop\obj\Debug\BookCDDVDShop.frmBookCDDVDShop.resources
+C:\Users\12152\source\repos\BookCDDVDShop\BookCDDVDShop\obj\Debug\BookCDDVDShop.Properties.Resources.resources
+C:\Users\12152\source\repos\BookCDDVDShop\BookCDDVDShop\obj\Debug\BookCDDVDShop.csproj.GenerateResource.cache
+C:\Users\12152\source\repos\BookCDDVDShop\BookCDDVDShop\obj\Debug\BookCDDVDShop.csproj.CoreCompileInputs.cache
+C:\Users\12152\source\repos\BookCDDVDShop\BookCDDVDShop\bin\Debug\BookCDDVDShop.exe.config
+C:\Users\12152\source\repos\BookCDDVDShop\BookCDDVDShop\bin\Debug\BookCDDVDShop.exe
+C:\Users\12152\source\repos\BookCDDVDShop\BookCDDVDShop\bin\Debug\BookCDDVDShop.pdb
+C:\Users\12152\source\repos\BookCDDVDShop\BookCDDVDShop\obj\Debug\BookCDDVDShop.exe
+C:\Users\12152\source\repos\BookCDDVDShop\BookCDDVDShop\obj\Debug\BookCDDVDShop.pdb
