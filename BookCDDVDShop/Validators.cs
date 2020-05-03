@@ -7,6 +7,7 @@
 
 // This class contains "static" methods to handle required data validations for this Temple Owl project
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -6,6 +6,10 @@ using System.IO;
 using System.Data.OleDb;
 using System.Windows.Forms;
 
+//EDITED BY ERIC ROSENBLATT
+//Fixed query statements missing commas and quotations that caused errors
+//Few spelling errors
+
 namespace BookCDDVDShop.Classes
 {
     class ProductDB
@@ -306,46 +310,51 @@ namespace BookCDDVDShop.Classes
             {
                 myConnection.Open();
                 myDataReader = myCommand.ExecuteReader();
-                if (myDataReader.HasRows == false) OKFlag = false;
-                else OKFlag = true;
+                if (myDataReader.HasRows == false)
+                {
+                    OKFlag = false;
+                }
+                else
+                {
+                    OKFlag = true;
+                    myDataReader.Read();
+                    dbProductType = myDataReader["fldProductType"].ToString();
+                    dbStringProduct = myDataReader["fldUPC"].ToString() + Environment.NewLine;
+                    dbStringProduct = dbStringProduct + myDataReader["fldPrice"].ToString() + Environment.NewLine;
+                    dbStringProduct = dbStringProduct + myDataReader["fldTitle"].ToString() + Environment.NewLine;
+                    dbStringProduct = dbStringProduct + myDataReader["fldQuantity"].ToString() + Environment.NewLine;
+                    dbStringProduct = dbStringProduct + dbProductType + Environment.NewLine;
 
-                myDataReader.Read();
-                dbProductType = myDataReader["fldProductType"].ToString();
-                dbStringProduct = myDataReader["fldUPC"].ToString() + Environment.NewLine;
-                dbStringProduct = dbStringProduct + myDataReader["fldPrice"].ToString() + Environment.NewLine;
-                dbStringProduct = dbStringProduct + myDataReader["fldTitle"].ToString() + Environment.NewLine;
-                dbStringProduct = dbStringProduct + myDataReader["fldQuantity"].ToString() + Environment.NewLine;
-                dbStringProduct = dbStringProduct + dbProductType + Environment.NewLine;
+                    MessageBox.Show("Product Found ..." + Environment.NewLine
+                        + dbStringProduct, "Show Found Product", MessageBoxButtons.OK);
 
-                MessageBox.Show("Product Found ..." + Environment.NewLine
-                    + dbStringProduct, "Show Found Product", MessageBoxButtons.OK);
+                    //dbProductType = myDataReader["fldProductType"].ToString();
 
-                //dbProductType = myDataReader["fldProductType"].ToString();
-
-                if (dbProductType == "Book")
-                {
-                    myDataReader = SelectProductFromBook(ProductUPC, out OKFlag, out fieldsFound);
-                }
-                else if (dbProductType == "BookCIS")
-                {
-                    myDataReader = SelectProductFromBookCIS(ProductUPC, out OKFlag, out fieldsFound);
-                }
-                else if (dbProductType == "DVD")
-                {
-                    myDataReader = SelectProductFromDVD(ProductUPC, out OKFlag, out fieldsFound);
-                }
-                else if (dbProductType == "CDClassical")
-                {
-                    myDataReader = SelectProductFromCDClassical(ProductUPC, out OKFlag, out fieldsFound);
-                }
-                else if (dbProductType == "CDOrchestra")
-                {
-                    myDataReader = SelectProductFromCDOrchestra(ProductUPC, out OKFlag, out fieldsFound);
-                }
-                else if (dbProductType == "CDChamber")
-                {
-                    myDataReader = SelectProductFromCDChamber(ProductUPC, out OKFlag, out fieldsFound);
-                }
+                    if (dbProductType == "Book")
+                    {
+                        myDataReader = SelectProductFromBook(ProductUPC, out OKFlag, out fieldsFound);
+                    }
+                    else if (dbProductType == "BookCIS")
+                    {
+                        myDataReader = SelectProductFromBookCIS(ProductUPC, out OKFlag, out fieldsFound);
+                    }
+                    else if (dbProductType == "DVD")
+                    {
+                        myDataReader = SelectProductFromDVD(ProductUPC, out OKFlag, out fieldsFound);
+                    }
+                    else if (dbProductType == "CDClassical")
+                    {
+                        myDataReader = SelectProductFromCDClassical(ProductUPC, out OKFlag, out fieldsFound);
+                    }
+                    else if (dbProductType == "CDOrchestra")
+                    {
+                        myDataReader = SelectProductFromCDOrchestra(ProductUPC, out OKFlag, out fieldsFound);
+                    }
+                    else if (dbProductType == "CDChamber")
+                    {
+                        myDataReader = SelectProductFromCDChamber(ProductUPC, out OKFlag, out fieldsFound);
+                    }
+                }  
             }
             catch (OleDbException ex)
             {
@@ -495,6 +504,7 @@ namespace BookCDDVDShop.Classes
             OleDbCommand myCommand = new OleDbCommand(strSelectProduct, myConnection);
             OleDbDataReader myDataReader;
             string dbStringProduct = "";
+            string dbStringCDClassical = "";
             string dbStringCDChamber = "";
 
             try
@@ -511,6 +521,9 @@ namespace BookCDDVDShop.Classes
                 dbStringProduct = dbStringProduct + myDataReader["fldQuantity"].ToString() + Environment.NewLine;
                 dbStringProduct = dbStringProduct + myDataReader["fldProductType"].ToString() + Environment.NewLine;
 
+                dbStringCDClassical = dbStringCDClassical + myDataReader["fldLabel"].ToString() + Environment.NewLine;
+                dbStringCDClassical = dbStringCDClassical + myDataReader["fldArtists"].ToString() + Environment.NewLine;
+
                 dbStringCDChamber = dbStringCDChamber + myDataReader["fldInstrumentList"].ToString() + Environment.NewLine;
             }
             catch (OleDbException ex)
@@ -523,7 +536,7 @@ namespace BookCDDVDShop.Classes
                 myDataReader = null;
             }
 
-            fieldsFound = dbStringProduct + dbStringCDChamber;
+            fieldsFound = dbStringProduct + dbStringCDClassical + dbStringCDChamber;
             MessageBox.Show("CDChamber Found ..." + Environment.NewLine
                 + fieldsFound, "Show Found CDChamber", MessageBoxButtons.OK);
 
@@ -550,6 +563,7 @@ namespace BookCDDVDShop.Classes
             OleDbCommand myCommand = new OleDbCommand(strSelectProduct, myConnection);
             OleDbDataReader myDataReader;
             string dbStringProduct = "";
+            string dbStringCDClassical = "";
             string dbStringCDOrchestra = "";
 
             try
@@ -566,6 +580,9 @@ namespace BookCDDVDShop.Classes
                 dbStringProduct = dbStringProduct + myDataReader["fldQuantity"].ToString() + Environment.NewLine;
                 dbStringProduct = dbStringProduct + myDataReader["fldProductType"].ToString() + Environment.NewLine;
 
+                dbStringCDClassical = dbStringCDClassical + myDataReader["fldLabel"].ToString() + Environment.NewLine;
+                dbStringCDClassical = dbStringCDClassical + myDataReader["fldArtists"].ToString() + Environment.NewLine;
+
                 dbStringCDOrchestra = dbStringCDOrchestra + myDataReader["fldConductor"].ToString() + Environment.NewLine;
             }
             catch (OleDbException ex)
@@ -578,7 +595,7 @@ namespace BookCDDVDShop.Classes
                 myDataReader = null;
             }
 
-            fieldsFound = dbStringProduct + dbStringCDOrchestra;
+            fieldsFound = dbStringProduct + dbStringCDClassical + dbStringCDOrchestra;
             MessageBox.Show("CDOrchestra Found ..." + Environment.NewLine
                 + fieldsFound, "Show Found CDOrchestra", MessageBoxButtons.OK);
             return myDataReader;
@@ -658,6 +675,7 @@ namespace BookCDDVDShop.Classes
             OleDbCommand myCommand = new OleDbCommand(strSelectProduct, myConnection);
             OleDbDataReader myDataReader;
             string dbStringProduct = "";
+            string dbStringBook = "";
             string dbStringBookCIS = "";
 
             try
@@ -667,7 +685,7 @@ namespace BookCDDVDShop.Classes
                 if (myDataReader.HasRows == false) OKFlag = false;
                 else OKFlag = true; // returns true if Select was successful
 
-                myDataReader = null;
+                //myDataReader = null;
 
                 myDataReader.Read();
                 dbStringProduct = myDataReader["fldUPC"].ToString() + Environment.NewLine;
@@ -675,6 +693,10 @@ namespace BookCDDVDShop.Classes
                 dbStringProduct = dbStringProduct + myDataReader["fldTitle"].ToString() + Environment.NewLine;
                 dbStringProduct = dbStringProduct + myDataReader["fldQuantity"].ToString() + Environment.NewLine;
                 dbStringProduct = dbStringProduct + myDataReader["fldProductType"].ToString() + Environment.NewLine;
+
+                dbStringBook = dbStringBook + myDataReader["fldISBN"].ToString() + Environment.NewLine;
+                dbStringBook = dbStringBook + myDataReader["fldAuthor"].ToString() + Environment.NewLine;
+                dbStringBook = dbStringBook + myDataReader["fldPages"].ToString() + Environment.NewLine;
 
                 dbStringBookCIS = dbStringBookCIS + myDataReader["fldCISArea"].ToString() + Environment.NewLine;
             }
@@ -687,7 +709,7 @@ namespace BookCDDVDShop.Classes
                 myDataReader = null;
             }
 
-            fieldsFound = dbStringProduct + dbStringBookCIS;
+            fieldsFound = dbStringProduct + dbStringBook + dbStringBookCIS;
             MessageBox.Show("BookCIS Found ..." + Environment.NewLine
                 + dbStringProduct, "Show Found BookCIS", MessageBoxButtons.OK);
             return myDataReader;
@@ -705,7 +727,7 @@ namespace BookCDDVDShop.Classes
         public bool UpdateProduct(int UPC, decimal price, string title, int quantity)
         {
             string strUpdateProduct = "UPDATE Product SET " +
-                                     "fldUPC = " + UPC + "fldPrice = " + price + " fldTitle = '" + title + "' fldQuantity = " + quantity +
+                                     "fldUPC = "+ UPC + ", fldPrice = " + price + ", fldTitle = '" + title + "', fldQuantity = " + quantity +
                                      " WHERE fldUPC = " + UPC;  // Update Product record that matches the UPC
 
             OleDbConnection myConnection = new OleDbConnection(strConnection);
@@ -732,8 +754,8 @@ namespace BookCDDVDShop.Classes
         public bool UpdateBook(int UPC, int ISBN, string author, int pages)
         {
             string strUpdateFaculty = "UPDATE Book SET " +
-                                    "fldISBN = " + ISBN + " fldAuthor = '" + author + "' fldPages = " + pages +
-                                    "WHERE fldUPC = " + UPC;
+                                    "fldISBN = " + ISBN + ", fldAuthor = '" + author + "', fldPages = " + pages +
+                                    " WHERE fldUPC = " + UPC;
 
             OleDbConnection myConnection = new OleDbConnection(strConnection);
             OleDbCommand myCommand = new OleDbCommand(strUpdateFaculty, myConnection);
@@ -786,9 +808,9 @@ namespace BookCDDVDShop.Classes
         public bool UpdateDVD(int UPC, string leadActor, DateTime releaseDate, int runTime)
         {
             string strUpdateFaculty = "UPDATE DVD SET " +
-                                    "fldUPC = " + UPC + " fldLeadActor = '" + leadActor + "' fldReleaseDate = " +
-                                    releaseDate + "fldRunTime = " + runTime +
-                                    "WHERE fldUPC = " + UPC;
+                                    "fldUPC = " + UPC + ", fldLeadActor = '" + leadActor + "', fldReleaseDate = '" +
+                                    releaseDate + "', fldRunTime = " + runTime +
+                                    " WHERE fldUPC = " + UPC;
 
             OleDbConnection myConnection = new OleDbConnection(strConnection);
             OleDbCommand myCommand = new OleDbCommand(strUpdateFaculty, myConnection);
@@ -813,7 +835,7 @@ namespace BookCDDVDShop.Classes
         public bool UpdateCDClassical(int UPC, string label, string artist)
         {
             // string strUpdateCDClassical = "SELECT * FROM CDClassical WHERE CDClassical.CDClassicalID = " + ProductUPC; // string select statement
-            string strUpdateCDClassical = "UPDATE CDClassical SET fldLabel = '" + label + "' , fldArtist = '" + artist + "'" +
+            string strUpdateCDClassical = "UPDATE CDClassical SET fldLabel = '" + label + "', fldArtists = '" + artist + "'" +
                                        " WHERE fldUPC = " + UPC;
 
             OleDbConnection myConnection = new OleDbConnection(strConnection);

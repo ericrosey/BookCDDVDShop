@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-// For serializati
+//For serialization
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace BookCDDVDShop.Classes
@@ -70,14 +70,14 @@ namespace BookCDDVDShop.Classes
         {
             base.Save(f);
             hiddenDVDLeadActor = f.txtDVDLeadActor.Text;
-            hiddenDVDReleaseDate = Convert.ToDateTime(f.txtDVDReleaseDate.Text);
+            hiddenDVDReleaseDate = DateTime.Parse(f.txtDVDReleaseDate.Text);
             hiddenDVDRuntime = Convert.ToInt32(f.txtDVDRunTime.Text);
         }//end of save
         public override void Display(frmBookCDDVDShop f)
         {
             base.Display(f);
             f.txtDVDLeadActor.Text = hiddenDVDLeadActor;
-            f.txtDVDReleaseDate.Text = hiddenDVDReleaseDate.ToShortDateString();
+            f.txtDVDReleaseDate.Text = hiddenDVDReleaseDate.ToString();
             f.txtDVDRunTime.Text = hiddenDVDRuntime.ToString();
         }//end of display
         public override string ToString()
