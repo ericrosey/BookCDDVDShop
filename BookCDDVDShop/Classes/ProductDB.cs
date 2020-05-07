@@ -6,9 +6,17 @@ using System.IO;
 using System.Data.OleDb;
 using System.Windows.Forms;
 
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * ProductDB class
+ */
+
 //EDITED BY ERIC ROSENBLATT
 //Fixed query statements missing commas and quotations that caused errors
 //Few spelling errors
+//Used to make various SQL statements that can access a database
 
 namespace BookCDDVDShop.Classes
 {

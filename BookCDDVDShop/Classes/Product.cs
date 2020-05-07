@@ -13,6 +13,13 @@
 // Class Product must be inherited by another object to be used
 // and can be serialized to a binary file.
 
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * Product class
+ */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

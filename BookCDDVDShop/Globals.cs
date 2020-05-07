@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * Globals class
+ */
+
 namespace BookCDDVDShop
 {
     class Globals

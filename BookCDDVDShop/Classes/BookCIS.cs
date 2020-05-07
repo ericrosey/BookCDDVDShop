@@ -6,9 +6,17 @@ using System.Windows.Forms;
 // For serializati
 using System.Runtime.Serialization.Formatters.Binary;
 
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * Book CIS class
+ */
+
 namespace BookCDDVDShop.Classes
 {
-    // CDClChamber inherits the data and methods in CDClassical and can be a serialized to a binary file
+    // Book CIS inherits the data and methods in Product and can be a serialized to a binary file
+
     [Serializable()]
     class BookCIS : Book
     {

@@ -7,9 +7,17 @@ using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 // using BookCDDVDShop.Classes;
 
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * CDClassical class
+ */
+
 namespace BookCDDVDShop.Classes
 {
     // CDClassical inherits the data and methods in Product
+
     [Serializable()]
     public abstract class CDClassical : Product
     {

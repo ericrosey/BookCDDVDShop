@@ -6,8 +6,17 @@ using System.Windows.Forms;
 //For serialization
 using System.Runtime.Serialization.Formatters.Binary;
 
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * DVD class
+ */
+
 namespace BookCDDVDShop.Classes
 {
+    //DVD class inherits the data and method from the product class
+
     [Serializable()]
     class DVD : Product
     {

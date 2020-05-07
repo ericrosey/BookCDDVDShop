@@ -1,5 +1,5 @@
 ﻿// Form Controller Class
-// Responsible for all processing related to frmEmpMan 
+// Responsible for all processing related to frmBookCDDVDShop 
 
 // Written in VB by Joseph Jupin     Fall 2009
 // Converted to CSharp by Frank Friedman     Spring 2016
@@ -9,6 +9,13 @@
 
 // This class contains "static" methods to automate complex tasks
 //     on frmEmpMan components
+
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * Form Controller class
+ */
 
 using System;
 using System.Collections.Generic;

@@ -11,11 +11,18 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using BookCDDVDShop.Classes;
 
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * SFManager class
+ */
+
 namespace BookCDDVDShop
 {
     public static class SFManager//create file for me
     {
-        // This class manages s serializable file object by reading from and writing to a file
+        // This class manages a serializable file object by reading from and writing to a file
 
         // Write the Product List to file as a serialized binary object
         public static bool writeToFile(ProductList plist, string fn)

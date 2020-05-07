@@ -13,12 +13,18 @@ using BookCDDVDShop.Classes;
 // To serialize a persistant object
 using System.Runtime.Serialization.Formatters.Binary;
 
-//Project 4 Written For 3309 Component Based Software Design
-//Code behind handling bulk of on form actions
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * frmBookCDDVDShop code behind
+ */
 
 
 namespace BookCDDVDShop
 {
+    //Responsible for the bulk of displayable actions on the form
+
     public partial class frmBookCDDVDShop : Form
     {
         // This is a class object that manages a List of Products		

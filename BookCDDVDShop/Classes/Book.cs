@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-// For serializati
+// For serialization
 using System.Runtime.Serialization.Formatters.Binary;
+
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * Book class
+ */
 
 namespace BookCDDVDShop.Classes
 {
     // Book inherits the data and methods in Product and can be a serialized to a binary file
+
     [Serializable()]
     class Book : Product
     {

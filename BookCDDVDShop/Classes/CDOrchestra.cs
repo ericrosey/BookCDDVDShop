@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-// For serializati
+// For serialization
 using System.Runtime.Serialization.Formatters.Binary;
+
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * CDOrchestra class
+ */
 
 namespace BookCDDVDShop.Classes
 {
+    //CD Orchestra inherits the data and methods from the CDClassical class
     [Serializable()]
     class CDOrchestra : CDClassical
     {

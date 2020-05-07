@@ -7,6 +7,12 @@
 
 // This class contains "static" methods to handle required data validations for this Temple Owl project
 
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * Validators class
+ */
 
 using System;
 using System.Collections.Generic;

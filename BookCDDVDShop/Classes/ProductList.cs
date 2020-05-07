@@ -8,8 +8,19 @@ using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * ProductList class
+ */
+
 namespace BookCDDVDShop.Classes
 {
+    
+    //the productList class holds a list of products that could be added/edited/deleted to/from the list
+    //the products in the list can be either book, bookcis, cdclassical, cdchamber, cdorchestra due to inheritance
+
     public class ProductList
     {
         private List<Product> hiddenProductList;

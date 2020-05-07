@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-// For serializati
+// For serialization
 using System.Runtime.Serialization.Formatters.Binary;
+
+/* Eric Rosenblatt & Max Robins
+ * CIS 3309
+ * 05/04/2020
+ * Project 4 - BookCDDVDShop
+ * CDChamber class
+ */
 
 namespace BookCDDVDShop.Classes
 {
-    // CDClChamber inherits the data and methods in CDClassical and can be a serialized to a binary file
+    // CDChamber inherits the data and methods in CDClassical and can be a serialized to a binary file
     [Serializable()]
     class CDChamber : CDClassical
     {
